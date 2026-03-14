@@ -30,8 +30,8 @@ namespace cuBQL {
 
 #ifdef __CUDA_ARCH__
 #else
-    inline float __int_as_float(int i) { return (const float &)i; }
-    inline int __float_as_int(float f) { return (const int &)f; }
+    inline __cubql_both float __int_as_float(int i) { return (const float &)i; }
+    inline __cubql_both int __float_as_int(float f) { return (const int &)f; }
 #endif
 
   inline __cubql_both float squareOf(float f) { return f*f; }
