@@ -6,9 +6,9 @@
 #include "cuBQL/math/common.h"
 #include "cuBQL/math/vec.h"
 #include "cuBQL/math/box.h"
-#ifdef __CUDACC__
-# include <cuda.h>
-#endif
+// #ifdef __CUDACC__
+// # include <cuda.h>
+// #endif
 
 namespace cuBQL {
 
@@ -156,8 +156,10 @@ namespace cuBQL {
 #ifdef __CUDACC__
 # include "cuBQL/builder/cuda.h"
 #endif
-# include "cuBQL/builder/cpu.h"
 
+#if XXX
+# include "cuBQL/builder/cpu.h"
+#endif
 
 
   
