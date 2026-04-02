@@ -30,6 +30,8 @@
 #  include <hip/hip_runtime.h>
 #elif defined(__CUDACC__)
 #  include <cuda_runtime.h>
+// on cuda 13.2/gcc 15.2/ubuntu 25.10 we need to include that before cuda.h gets included
+#  include <cub/cub.cuh>
 #endif
 
 #ifdef _WIN32

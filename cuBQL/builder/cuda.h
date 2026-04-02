@@ -12,7 +12,6 @@
 # include <mutex>
 
 namespace cuBQL {
-
   // ------------------------------------------------------------------
   /*! defines a 'memory resource' that can be used for allocating gpu
     memory; this allows the user to switch between usign

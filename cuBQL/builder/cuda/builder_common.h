@@ -191,11 +191,6 @@ namespace cuBQL {
       
       typename int_type_of<scalar_t>::type lower[box_t::numDims];
       typename int_type_of<scalar_t>::type upper[box_t::numDims];
-      // int32_t lower[box_t::numDims];
-      // int32_t upper[box_t::numDims];
-      
-      // inline static __device__ int32_t encode(float f);
-      // inline static __device__ float   decode(int32_t bits);
     };
     
     template<typename box_t>
@@ -203,14 +198,7 @@ namespace cuBQL {
     AtomicBox<box_t>::get_center(int dim) const
     {
       return (get_lower(dim)+get_upper(dim))/(AtomicBox<box_t>::scalar_t)2;
-      // return 0.5f*(decode(lower[dim])+decode(upper[dim]));
     }
-    // template<typename box_t>
-    // inline __device__ float AtomicBox<box_t>::get_center(int dim) const
-    // {
-    //   return 0.5f*(get_lower(dim)+get_upper(dim));
-    //   // return 0.5f*(decode(lower[dim])+decode(upper[dim]));
-    // }
 
     template<typename box_t>
     inline __device__ box_t AtomicBox<box_t>::make_box() const
@@ -224,23 +212,6 @@ namespace cuBQL {
       }
       return box;
     }
-    
-    // template<typename box_t>
-    // inline __device__ int32_t AtomicBox<box_t>::encode(float f)
-    // {
-    //   const int32_t sign = 0x80000000;
-    //   int32_t bits = __float_as_int(f);
-    //   if (bits & sign) bits ^= 0x7fffffff;
-    //   return bits;
-    // }
-      
-    // template<typename box_t>
-    // inline __device__ float AtomicBox<box_t>::decode(int32_t bits)
-    // {
-    //   const int32_t sign = 0x80000000;
-    //   if (bits & sign) bits ^= 0x7fffffff;
-    //   return __int_as_float(bits);
-    // }
     
     template<typename box_t>
     inline __device__ void AtomicBox<box_t>::set_empty()
