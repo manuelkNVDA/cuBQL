@@ -157,9 +157,7 @@ namespace cuBQL {
 # include "cuBQL/builder/cuda.h"
 #endif
 
-#if XXX
 # include "cuBQL/builder/cpu.h"
-#endif
 
 
   
